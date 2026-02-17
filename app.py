@@ -17,7 +17,7 @@ st.set_page_config(
 st.markdown("""
     <style>
     .stApp {
-        background-color: #FFF5E1; /* Light cream background */
+        background: cyan; 
 
     }
     
@@ -134,16 +134,17 @@ if selection == "Predict Expenditure":
                 options=["Conference", "VFR", "Leisure", "Business"],
                 help="Select the primary reason for your trip. 'VFR' stands for Visiting Friends and Relatives."
              )
-             stay_days = st.number_input("Length of Stay (Days)", min_value=0.5, max_value=60.0, value=7.0, step=0.1, format="%.1f")
-
-             daily_spending = st.number_input("Daily Spending (USD)", min_value=1.0, value=150.0)
-             
-        with col2:
              hotel_class = st.radio(
                 "Hotel Class",
                 options=["Luxury", "Standard","Budget"],
                 help="Choose the star rating or category of your accommodation."
-             )
+             )  
+             
+        with col2:
+             
+          stay_days = st.number_input("Length of Stay (Days)", min_value=0.5, max_value=60.0, value=7.0, step=0.1, format="%.1f")
+
+          daily_spending = st.number_input("Daily Spending (USD)", min_value=1.0, value=150.0)
 
     # Prediction Logic
     if st.button("💰 Predict Total Expenditure"):
